@@ -11,7 +11,7 @@
 <ul id="cat-images">
   <table class="subcategories_list">
     <tr>
-  <% @subcategories.in_groups(5, "&") do |group| %>
+  <% @subcategories.in_groups(5, nil) do |group| %>
       <td>
     <% group.each do |subactegory| %>
       <%= render :partial => 'subcategory', :object => subactegory %>
