@@ -11,6 +11,9 @@
       <% form_for [:admin, @category], :html => { :multipart => true, :class => :form }  do |form| %>
         <%= error_messages_for :category %>
         <%= render :partial => "form", :locals => {:form => form} %>
+        <div class="group navform">
+          <%= form.submit "Создать", :class => "button" %> or <%= link_to "Назад", admin_categories_path %>
+        </div>
       <% end -%>
     </div>
   </div>

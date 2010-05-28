@@ -12,6 +12,9 @@
       <% form_for @user, :url => admin_user_path, :html => {:class => :form } do |form| %>
         <%= form.error_messages %>
         <%= render :partial => "form", :object => form %>
+        <div class="group navform">
+          <%= form.submit "Обновить", :class => "button" %> or <%= link_to "Назад", admin_users_path %>
+        </div>
       <% end %>
     </div>
   </div>
