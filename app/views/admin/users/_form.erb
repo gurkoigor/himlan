@@ -5,6 +5,12 @@
   </div>
 
   <div class="group">
+    <%= form.label :nickname, "Ник", :class => :label %>
+    <%= form.text_field :nickname, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
     <%= form.label :email, "Почтовый адрес:", :class => :label %>
     <%= form.text_field :email, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>

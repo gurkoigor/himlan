@@ -217,7 +217,7 @@ input.checkbox {
 }
 
 .form .group {
-  margin-bottom: 15px;
+    margin: 15px 0;
 }
 
 .form div.left {
