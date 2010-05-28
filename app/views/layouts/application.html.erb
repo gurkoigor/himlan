@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+Author: Reality Software
+Website: http://www.realitysoftware.ca
+Note: This is a free template released under the Creative Commons Attribution 3.0 license,
+which means you can use it in any way you want provided you keep the link to the author intact.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><%= yield :title %></title>
+    <%= stylesheet_link_tag 'style', 'style_new' %>
+    <%= javascript_include_tag :defaults %>
+  </head>
+    <body>
+      <!-- header -->
+      <div id="logo"><%= link_to(image_tag("logo.gif", :style => "border:none;"), "#") %></div>
+      <div id="header">
+        <div id="left_header"></div>
+        <div id="right_header"></div>
+      </div>
+      <div id="menu">
+        <ul>
+          <li><a href="#"><%= link_to "Главная", root_path %></a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Contacts</a></li>
+          <li><%= link_to "Добавить релиз", new_admin_reliz_path  %></li>
+          <% if current_user.nil? %>
+            <li><%= link_to "Вход на сайт", new_user_session_url  %></li>
+          <% else %>
+            <% if current_user.is_admin %>
+              <li><%= link_to "Админка", admin_relizs_path %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+      <div class="flash">
+          <div class="message notice">
+            <p>Уважаемые пользователи сети Himlan. Запуск сайта запланирован на 1 июня. Сейчас ведутся тестовые работы</p>
+          </div>
+      </div>
+      <!--end header -->
+      <!-- main -->
+      <%= render :partial => "/shared/admin_flash" %>
+      <div id="content">
+        <div id="content_top">
+          <div id="content_top_left"></div>
+          <div id="content_top_right"></div>
+        </div>
+        <div id="content_body">
+       	  <div class="sidebar">
+            <div class="sidebar_top"></div>
+            <div class="sidebar_body">
+              <h1>Категории</h1>
+              <%= yield :left %>
+            </div>
+            <div class="sidebar_bottom"></div>
+            <br />
+
+            <% unless current_user.nil? %>
+            <div class="sidebar_top"></div>
+            <div class="sidebar_body">
+              <h1>Ваши данные</h1>
+              <% if current_user.avatar %>
+                <p><%= image_tag (current_user.avatar.avatar.url(:small)) %></p>
+              <% end %>
+              <p>Ник: <%= link_to(current_user.login, account_path) %></p>
+              <p>Релизы: <%= link_to(current_user.relizs.count, admin_relizs_path) %></p>
+              <p>Комментарии: <%= link_to("TODO", "#") %></p>
+              <p style="text-align: center"><%= link_to "Выйти", user_session_path, :method => :delete %></p>
+            </div>
+            <div class="sidebar_bottom"></div>
+            <% end %>
+
+          </div>
+          <div id="text">
+            <div id="text_top">
+              <div id="text_top_left"></div>
+              <div id="text_top_right"></div>
+            </div>
+            <div id="text_body">
+            <%= yield %>
+            </div>
+            <div id="text_bottom">
+              <div id="text_bottom_left"></div>
+              <div id="text_bottom_right"></div>
+            </div>
+          </div>
+        </div>
+        <div id="content_bottom">
+          <div id="content_bottom_left"></div>
+          <div id="content_bottom_right"></div>
+        </div>
+      </div>
+      <!-- end main -->
+      <!-- footer -->
+      <div id="footer">
+        <div id="left_footer">&copy; Copyright 2008 <b>Darkit</b> design </div>
+        <div id="right_footer">
+
+          <!-- Please do not change or delete this link. Read the license! Thanks. :-) -->
+          Design by <a href="http://www.realitysoftware.ca" title="Website Design">Reality Software</a>
+
+        </div>
+      </div>
+      <!-- end footer -->
+    </body>
+</html>

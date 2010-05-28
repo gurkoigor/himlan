@@ -1,0 +1,8 @@
+<tr>
+  <td><%= category.title %></td>
+  <td><%= category.name %></td>
+  <td class="last">
+    <%= link_to image_tag('icons/user_edit.png', :title => "Редактировать"), edit_admin_category_path(category.id) %> |
+    <%= link_to image_tag('icons/user_delete.png', :title => "Удалить"),  admin_category_path(category.id), :method => :delete, :confirm => "Вы уверены в удалении #{ category.title}" %>
+  </td>
+</tr>

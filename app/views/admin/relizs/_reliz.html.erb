@@ -1,0 +1,12 @@
+<tr>
+  <td><%= reliz.category.title %></td>
+  <td><%= reliz.subcategory.title %></td>
+  <td><%= reliz.title %></td>
+  <td><%= l(reliz.created_at, :format => :long) %></td>
+  <td><%= l(reliz.updated_at, :format => :long) %></td>
+  <td class="last">
+    <%= link_to image_tag('icons/folder_explore.png', :title => "Просмотр"), admin_reliz_path(reliz.id) %> |
+    <%= link_to image_tag('icons/user_edit.png', :title => "Редактировать"), edit_admin_reliz_path(reliz.id) %> |
+    <%= (link_to image_tag('icons/user_delete.png', :title => "Удалить"),  admin_reliz_path(reliz.id), :method => :delete, :confirm => "Вы уверены в удалении #{ reliz.title}") if current_user.admin? %>
+  </td>
+</tr>

@@ -1,0 +1,35 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul>
+      <li class="first"><%#= link_to 'List', admin_hints_path  %></li>
+      <li class="active"><%#= link_to 'Edit', edit_admin_hint_path %></li>
+    </ul>
+    <div class="clear"></div>
+  </div>
+  <div class="content">
+    <h2 class="title">Загрузка файлов</h2>
+    <div class="inner">
+      <ul style="list-style-type: none;">
+        <% @reliz.file_relizs.each do |file_reliz|%>
+          <li>
+            <%= h file_reliz.file_reliz_file_name %> ----
+            <%= link_to "Удалить", {:controller => "admin/relizs", :action => "remove_file_reliz", :file_reliz_id => file_reliz.id}, {:method => :delete, :confirm => 'Ви действительно хотите удалить файл?'} %>
+          </li>
+        <% end %>
+      </ul>
+      <% form_for [:admin, @reliz], :html => { :multipart => true, :method => :put, :class => :form } do |form|%>
+        <% form.fields_for :file_reliz_attributes do |file_reliz_form| %>
+          <%= form.label :page_name, "Файл:", :class => :label %>
+          <%= file_reliz_form.file_field :file_reliz %>
+        <% end %>
+        <div class="group navform">
+          <%= form.submit "Добавить файл" %> | 
+          <%= link_to "Вернуться к редактированию скриншетов", screenshots_admin_reliz_path(@reliz.id) %> | 
+          <%= link_to "Завершить создание релиза", root_path %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

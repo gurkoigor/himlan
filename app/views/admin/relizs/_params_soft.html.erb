@@ -1,0 +1,11 @@
+<div class="group">
+  <%= label_tag :description, "Системные требования:", :class => :label %>
+  <%= text_area_tag 'reliz[params_form][system_requirements]', (@reliz.params_form[:system_requirements] unless @reliz.nil?), :class => "text_area" %>
+<span class="description">Ex: a simple text</span>
+</div>
+
+<div class="group">
+  <%= label_tag :description, "Язык:", :class => :label %>
+  <%= text_field_tag 'reliz[params_form][language]', (@reliz.params_form[:language] unless @reliz.nil?), :class => "text_field" %>
+<span class="description">Ex: a simple text</span>
+</div>

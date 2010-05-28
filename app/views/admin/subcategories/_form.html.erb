@@ -1,0 +1,21 @@
+  <div class="group">
+    <%= form.label :category, "Категория:", :class => :label %>
+    <%= form.select(:category_id, Category.find(:all).collect{|c| [c.title, c.id]}, {:include_blank => 'Без категории', :class => "select"})%>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= form.label :title, "Подкатегория:", :class => :label %>
+    <%= form.text_field :title, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= form.label :name, "Название подкатегории:", :class => :label %>
+    <%= form.text_field :name, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+<div class="group navform">
+  <%= form.submit "Обновить", :class => "button" %> or <%= link_to "Назад", admin_subcategories_path %>
+</div>

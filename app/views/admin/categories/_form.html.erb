@@ -1,0 +1,15 @@
+  <div class="group">
+    <%= form.label :title, "Категория:", :class => :label %>
+    <%= form.text_field :title, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= form.label :name, "Название категории:", :class => :label %>
+    <%= form.text_field :name, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+<div class="group navform">
+  <%= form.submit "Обновить", :class => "button" %> or <%= link_to "Назад", admin_categories_path %>
+</div>

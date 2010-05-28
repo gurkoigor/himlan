@@ -1,0 +1,10 @@
+--- 
+category_video: 
+  name: video
+  title: "Видео"
+category_soft: 
+  name: soft
+  title: "Программы"
+category_games: 
+  name: games
+  title: "Игры"

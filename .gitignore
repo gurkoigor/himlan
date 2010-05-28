@@ -1,0 +1,13 @@
+config/database.yml
+*.log
+*.pid
+tmp/**/*
+.DS_Store
+doc/api
+doc/app
+doc/plugins
+doc/*.dot
+*.tmproj
+nbproject
+*.sw?
+public/system

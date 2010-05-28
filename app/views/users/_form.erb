@@ -1,0 +1,24 @@
+<%= form.label :login, "Логин" %><br />
+<%= form.text_field :login, :disabled => true %><br />
+<br />
+<%= form.label :email, "Почтовый адрес:" %><br />
+<%= form.text_field :email %><br />
+<br />
+<% unless @user.avatar %>
+  <% @user.build_avatar %>
+  <% form.fields_for :avatar do |avatar_form| %>
+    <%= avatar_form.label :avatar, "Аватар:" %><br />
+    <%= avatar_form.file_field :avatar %><br />
+    <span style="color: aqua; margin-left: 100px;">(jpeg | gif | jpg | png)</span>
+  <% end %>
+<% else %>
+  <%= image_tag @user.avatar.avatar.url(:small) %>
+  <%= link_to "Удалить аватар", remove_avatar_user_path(@user.avatar.id), :method => :delete %>
+<% end %>
+<br />
+<%= form.label :password, form.object.new_record? ? "Пароль" : "Сменить пароль" %><br />
+<%= form.password_field :password %><br />
+<br />
+<%= form.label :password_confirmation, "Повторить пароль" %><br />
+<%= form.password_field :password_confirmation %><br />
+<br />

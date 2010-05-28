@@ -1,0 +1,35 @@
+  <div class="group">
+    <%= form.label :login, "Логин", :class => :label %>
+    <%= form.text_field :login, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= form.label :email, "Почтовый адрес:", :class => :label %>
+    <%= form.text_field :email, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= form.label :is_admin, "Админ:", :class => :label %>
+    <%= form.check_box :is_admin, :class => 'check_box' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= form.label :password, form.object.new_record? ? "Пароль" : "Сменить пароль", :class => :label %>
+    <%= form.password_field :password, :class => 'password_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= form.label :password_confirmation, "Повторить пароль", :class => :label %>
+    <%= form.password_field :password_confirmation, :class => 'password_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  
+
+<div class="group navform">
+  <%= form.submit "Обновить", :class => "button" %> or <%= link_to "Назад", admin_users_path %>
+</div>

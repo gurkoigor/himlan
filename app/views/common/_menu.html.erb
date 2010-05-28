@@ -1,0 +1,38 @@
+<ul id="categories">
+  <% @categories.each do |category| %>
+    <li id ="title_category_<%= category.id %>" onclick ="openCategory(<%= category.id %>)">
+      <a href="javascript:"><%= category.title %></a>
+    </li>
+    <li style="display:none;" id ="category_<%= category.id %>">
+      <ul id="subcategories">
+        <li onclick="closeCategory(<%= category.id %>)">
+          <a href="javascript:"><%= category.title %></a>
+        </li>
+        <% category.subcategories.each do |subcategory| %>
+          <li>
+            <%= link_to(subcategory.title, subcategory_relizs_path(:subcategory_name => subcategory.name)) %>
+          </li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>
+
+<SCRIPT type="text/javascript">
+  var category_ids = [<%= @categories.map{|category| category.id}.join(",") %>]
+  function closeCategory(id) {
+    Effect.BlindUp('category_'+id, { duration: 0.5 });
+    Effect.BlindDown('title_category_'+id, { duration: 0.5 });
+  }
+  function closeOthers(id){
+    for (i=0; i<category_ids.length; i++){
+      if ( (category_ids[i] != id) && ($('category_'+category_ids[i]).style.display != "none"))
+        closeCategory(category_ids[i]);
+    }
+  }
+  function openCategory(id) {
+    closeOthers(id)
+    Effect.BlindDown('category_'+id, { duration: 0.5 });
+    Effect.BlindUp('title_category_'+id, { duration: 0.5 });
+  }
+</SCRIPT>

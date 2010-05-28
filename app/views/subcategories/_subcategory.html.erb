@@ -1,0 +1,5 @@
+<% unless subcategory.nil? %>
+  <% link_to(subcategory_relizs_path(:subcategory_name => subcategory.name)) do %>
+    <%= h subcategory.title %><br />
+  <% end %>
+<% end %>

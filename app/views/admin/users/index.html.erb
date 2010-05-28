@@ -1,0 +1,35 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul>
+      <li class="first active"><%= link_to "Добавить", new_admin_user_path%></li>
+    </ul>
+    <div class="clear"></div>
+  </div>
+  <div class="content">
+    <h2 class="title">Релизы</h2>
+    <div class="inner">
+      <table class="table">
+        <th class="first">Логин:</th>
+        <th>Емайл:</th>
+        <th>Первоначальный IP:</th>
+        <th>Последний IP:</th>
+        <th>Последний вход:</th>
+        <th>Админ: </th>
+        <th>Действия: </th>
+        <% unless @users.nil? %>
+          <%= render :partial => 'user', :collection => @users %>
+        <% end %>
+      </table>
+      <div class="actions-bar">
+        <div class="actions">
+        </div>
+
+        <%= will_paginate @users  %>
+
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

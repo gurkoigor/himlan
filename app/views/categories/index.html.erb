@@ -1,0 +1,20 @@
+<% content_for :title do%>
+  HimL@n - страница категорий
+<% end %>
+
+<% content_for :left do %>
+<%= render :partial=>'common/menu' %>
+<% end %>
+
+<!-- PRODUCT CATEGORIES -->
+<h2><span>Категории:</span></h2>
+<div class="category">
+  <%=  render :partial => 'category', :collection => @categories %>
+</div>
+<!--<div style="height:15px;">&nbsp;</div>-->
+
+<ul style="margin-left: -40px;">
+  <%=  render :partial => 'relizs/short_reliz', :collection => @relizs %>
+</ul>
+<%= will_paginate @relizs %>
+

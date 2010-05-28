@@ -1,0 +1,3 @@
+<%= label_tag "reliz[subcategory_id]", "Подкатегория:", :class => :label %>
+<%= select_tag('reliz[subcategory_id]', options_from_collection_for_select(@subcategories, :id, :title, nil), :class => "select") %>
+<span class="description">Ex: a simple text</span>

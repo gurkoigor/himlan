@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Админка Himlan</title>
+    <%= stylesheet_link_tag 'web_app_theme', "themes/drastic-dark/style" %>
+	<%= stylesheet_link_tag 'admin_style' %>
+    <%= javascript_include_tag :defaults %>
+</head>
+<body>
+  <div id="container">
+    <div id="header">
+      <h1><a href="/">Himlan</a></h1>
+      <div id="user-navigation">
+        <div class="clear"></div>
+      </div>      
+      <div id="main-navigation">
+        <ul>
+          <li class="<%=  controller.controller_path == 'admin/relizs' ? 'active' : '' %>"><%= link_to "Релизы", admin_relizs_path%></li>
+          <% if current_user.admin? %>
+            <li class="<%=  controller.controller_path == 'admin/categories' ? 'active' : '' %>"><%= link_to "Категории", admin_categories_path%></li>
+            <li class="<%=  controller.controller_path == 'admin/subcategories' ? 'active' : '' %>"><%= link_to "Подкатегории",  admin_subcategories_path%></li>
+            <li class="<%=  controller.controller_path == 'admin/users' ? 'active' : '' %>"><%= link_to "Пользователи",  admin_users_path%></li>
+          <% end %>
+        </ul>
+        <div class="clear"></div>
+      </div>
+    </div>    
+    <div id="wrapper">
+      <div class="flash">
+        <% flash.each do |type, message| -%>
+          <div class="message <%= type %>">
+            <p><%= message %></p>
+          </div>
+        <% end -%>
+      </div>
+      <div id="main">
+        <%= yield %>
+        <div id="footer">
+          <div class="block">
+            <p>Copyright &copy; 2009 rails.in.ua</p>
+          </div>      
+        </div>
+      </div>
+      <div id="sidebar">
+        <%= yield :sidebar %>
+      </div>
+      <div class="clear"></div>      
+    </div>    
+  </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+  <div style="margin-bottom:10px;">
+    <span class="key_for_field">Категория:&nbsp;</span>
+    <span class="value">
+      <%= @reliz.category.title%>
+    </span>
+  </div>
+
+  <div id="subcategories" style="margin-bottom:10px;">
+    <span class="key_for_field">Подкатегория:&nbsp;</span>
+    <span class="value"><%= @reliz.subcategory.title %></span>
+  </div>
+
+  <div style="margin-bottom:10px;">
+    <span class="key_for_field">Название:&nbsp;</span>
+    <span class="value"><%= @reliz.title %></span>
+  </div>
+
+  <div style="margin-bottom:10px;">
+    <span class="key_for_field">Год выпуска:&nbsp;</span>
+    <span class="value">
+      <%= @reliz.year_issue %>
+    </span>
+  </div>
+
+  <div style="margin-bottom:10px;">
+    <span class="key_for_field">Описание:&nbsp;</span>
+    <span class="value">
+      <%= @reliz.description %>
+    </span>
+  </div>
+
+  <div>
+    <% if @reliz.poster %>
+      <%= image_tag @reliz.poster.poster.url(:main) %>
+    <% else %>
+      Нет постера
+    <% end %>
+  </div>
+
+  <%= render :partial => "admin/relizs/params_#{@reliz.category.name}" %>
+  <div>
+    <%= link_to "Назад", admin_relizs_path %>
+    <%= link_to "Перейти к редактированию", edit_admin_reliz_path(params[:id]) %>
+  </div>

@@ -1,0 +1,11 @@
+<% content_for :title do%>
+  HimL@n - страница релизов
+<% end %>
+
+<% content_for :left do %>
+  <%= render :partial=>'common/menu' %>
+<% end %>
+
+<ul>
+  <%=  render :partial => 'full_reliz', :object => @reliz %>
+</ul>

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/auto_portal/!svn/ver/7/trunk/test/unit/helpers
+END
+users_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/auto_portal/!svn/ver/7/trunk/test/unit/helpers/users_helper_test.rb
+END
+sendbox_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/auto_portal/!svn/ver/4/trunk/test/unit/helpers/sendbox_helper_test.rb
+END
+user_sessions_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/auto_portal/!svn/ver/7/trunk/test/unit/helpers/user_sessions_helper_test.rb
+END
+sandbox_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/auto_portal/!svn/ver/4/trunk/test/unit/helpers/sandbox_helper_test.rb
+END

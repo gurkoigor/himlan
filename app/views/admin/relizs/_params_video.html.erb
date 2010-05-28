@@ -1,0 +1,35 @@
+<div class="group">
+  <%= label_tag :description, "Режиссер:", :class => :label %>
+  <%= text_field_tag 'reliz[params_form][producer]', (@reliz.params_form[:producer] unless @reliz.nil?), :class => "text_field" %>
+<span class="description">Ex: a simple text</span>
+</div>
+
+<div class="group">
+  <%= label_tag :description, "Время воспроизвидения:", :class => :label %>
+  <%= text_field_tag 'reliz[params_form][reproducing_time]', (@reliz.params_form[:reproducing_time] unless @reliz.nil?), :class => "text_field" %>
+<span class="description">Ex: a simple text</span>
+</div>
+
+<div class="group">
+  <%= label_tag :description, "Актеры:", :class => :label %>
+  <%= text_area_tag 'reliz[params_form][actors]', (@reliz.params_form[:actors] unless @reliz.nil?), :class => "text_area" %>
+<span class="description">Ex: a simple text</span>
+</div>
+
+<div class="group">
+  <%= label_tag :description, "Качество:", :class => :label %>
+  <%= select_tag('reliz[params_form][quality]', options_for_select(Reliz::Video::QUALITY, (@reliz.params_form[:quality] unless @reliz.nil?))) %>
+<span class="description">Ex: a simple text</span>
+</div>
+
+<div class="group">
+  <%= label_tag :description, "Формат:", :class => :label %>
+  <%= select_tag('reliz[params_form][format]', options_for_select(Reliz::Video::FORMAT, (@reliz.params_form[:format] unless @reliz.nil?))) %>
+<span class="description">Ex: a simple text</span>
+</div>
+
+<div class="group">
+  <%= label_tag :description, "Перевод:", :class => :label %>
+  <%= select_tag('reliz[params_form][translation]', options_for_select(Reliz::Video::TRANSLATE, (@reliz.params_form[:translation] unless @reliz.nil?))) %>
+<span class="description">Ex: a simple text</span>
+</div>

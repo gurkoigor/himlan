@@ -1,0 +1,9 @@
+<tr>
+  <td><%= subcategory.title %></td>
+    <td><%= subcategory.name %></td>
+  <td><%= subcategory.category.title unless subcategory.category.nil?%></td>
+  <td class="last">
+    <%= link_to image_tag('icons/user_edit.png', :title => "Редактировать"), edit_admin_subcategory_path(subcategory.id) %> |
+    <%= link_to image_tag('icons/user_delete.png', :title => "Удалить"),  admin_subcategory_path(subcategory.id), :method => :delete, :confirm => "Вы уверены в удалении #{ subcategory.title}" %>
+  </td>
+</tr>

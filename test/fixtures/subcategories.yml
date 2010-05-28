@@ -1,0 +1,13 @@
+--- 
+subcategory_triller: 
+  name: triller
+  title: "Триллер"
+  category_id: category_video
+subcategory_cd_dvd: 
+  name: cd_dvd
+  title: "CD/DVD"
+  category_id: category_soft
+subcategory_strategy: 
+  name: strategy
+  title: "Стратегии"
+  category_id: category_games

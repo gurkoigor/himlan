@@ -1,0 +1,4 @@
+<% link_to(subcategories_path(:category_name => category.name), :title => category.title) do %>
+  <!--<span style="margin-top: 20px;"><%#= h category.title %></span>-->
+  <%= image_tag("other/#{category.name}.png", :width => 100, :height => 80, :border => "none") %>
+<% end %>

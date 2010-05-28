@@ -1,0 +1,9 @@
+<h1>Редактирование аккаунта</h1>
+
+<% form_for @user, :url => account_path, :html => { :multipart => true } do |form| %>
+  <%= form.error_messages %>
+  <%= render :partial => "form", :locals => {:form => form} %>
+  <%= form.submit "Обновить" %>
+<% end %>
+
+<br /><%= link_to "К профайлу", account_path %>
