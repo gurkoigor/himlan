@@ -1,7 +1,7 @@
 <div class="post">
   <h2 class="title"><a href="#"><%= link_to("#{@reliz.title}(#{@reliz.year_issue})", reliz_path(@reliz.id)) %></a></h2>
   <div class="entry">
-    <p class="byline"><i>Добавлен <%= h @reliz.created_at %></i></p>
+    <p class="byline"><i>Добавлен <%= l(@reliz.created_at, :format => :long) %></i></p>
     <p></p>
     <table>
       <td>
