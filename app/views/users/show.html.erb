@@ -1,37 +1,42 @@
 <p>
-  <b>Login:</b>
+  <b>Логин:</b>
   <%=h @user.login %>
 </p>
 
 <p>
-  <b>Login count:</b>
+  <b>Ник:</b>
+  <%=h @user.nickname %>
+</p>
+
+<p>
+  <b>Колличество входов:</b>
   <%=h @user.login_count %>
 </p>
 
 <p>
-  <b>Last request at:</b>
-  <%=h @user.last_request_at %>
+  <b>Последный запрос:</b>
+  <%= l(@user.last_request_at, :format => :long) %>
 </p>
 
 <p>
-  <b>Last login at:</b>
-  <%=h @user.last_login_at %>
+  <b>Последный вход:</b>
+  <%= l(@user.last_login_at, :format => :long) %>
 </p>
 
 <p>
-  <b>Current login at:</b>
-  <%=h @user.current_login_at %>
+  <b>Текущий вход:</b>
+  <%= l(@user.current_login_at, :format => :long) %>
 </p>
 
 <p>
-  <b>Last login ip:</b>
+  <b>Последниый  ip входа:</b>
   <%=h @user.last_login_ip %>
 </p>
 
 <p>
-  <b>Current login ip:</b>
+  <b>Текущий ip вход:</b>
   <%=h @user.current_login_ip %>
 </p>
 
 
-<%= link_to 'Edit', edit_account_path %>
+<%= link_to 'Редактировать', edit_account_path %>

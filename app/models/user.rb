@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_many :relizs
   has_one :avatar, :dependent => :destroy
 
+  validates_presence_of :nickname
+
   accepts_nested_attributes_for :avatar, :allow_destroy => true
 
   def admin?

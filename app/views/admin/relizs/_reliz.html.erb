@@ -5,8 +5,8 @@
   <td><%= l(reliz.created_at, :format => :long) %></td>
   <td><%= l(reliz.updated_at, :format => :long) %></td>
   <td>
-    <% if current_user.is_admin? %>
-      <%= reliz.user ? link_to(reliz.user.login, edit_admin_user_path(reliz.user)) : "пропавший без вести" %>
+    <% if current_user.admin? %>
+      <%= reliz.user ? link_to(reliz.user.nickname, edit_admin_user_path(reliz.user)) : "пропавший без вести" %>
     <% else %>
       Ваш релиз
     <% end %>

@@ -30,7 +30,7 @@ which means you can use it in any way you want provided you keep the link to the
           <% if current_user.nil? %>
             <li><%= link_to "Вход на сайт", new_user_session_url  %></li>
           <% else %>
-            <% if current_user.is_admin %>
+            <% if current_user.admin? %>
               <li><%= link_to "Админка", admin_relizs_path %></li>
             <% end %>
           <% end %>
@@ -66,7 +66,7 @@ which means you can use it in any way you want provided you keep the link to the
               <% if current_user.avatar %>
                 <p><%= image_tag (current_user.avatar.avatar.url(:small)) %></p>
               <% end %>
-              <p>Ник: <%= link_to(current_user.login, account_path) %></p>
+              <p>Ник: <%= link_to(current_user.nickname, account_path) %></p>
               <p>Релизы: <%= link_to(current_user.relizs.count, admin_relizs_path) %></p>
               <p>Комментарии: <%= link_to("TODO", "#") %></p>
               <p style="text-align: center"><%= link_to "Выйти", user_session_path, :method => :delete %></p>
