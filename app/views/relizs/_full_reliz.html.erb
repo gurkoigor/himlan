@@ -9,6 +9,8 @@
       </td>
       <td>
         <ul class="post_text">
+          <li><span>Категория:&nbsp;</span><%= @reliz.subcategory.category.title %></li>
+          <li><span>Жанр:&nbsp;</span><%= @reliz.subcategory.title %></li>
           <li><span>Описание:</span> <%= @reliz.description %></li>
           <%= render :partial => "params_#{@reliz.category.name}" %>
         </ul>
