@@ -2,7 +2,7 @@ class Admin::RelizsController < BaseAdminController
   layout "admin"
 
   before_filter :categories, :only => [:new, :edit, :screenshots]
-  before_filter :reliz, :only => [:edit, :show, :screenshots, :update, :upload_files, :user_created, :remove_poster, :remove_screenshot, :remove_file_reliz]
+  before_filter :reliz, :only => [:edit, :screenshots, :update, :upload_files, :user_created, :remove_poster, :remove_screenshot, :remove_file_reliz]
 
   before_filter :user_created_or_admin, :except => [:index, :destroy, :new, :create, :update_subcategories]
   before_filter :require_admin, :only => [:destroy]
@@ -14,9 +14,6 @@ class Admin::RelizsController < BaseAdminController
     else
       @relizs = Reliz.find(:all, :conditions => { :user_id => current_user.id}).paginate(:per_page => 10, :page => (params[:page] || 1), :order => "created_at DESC, updated_at DESC")
     end
-  end
-
-  def show
   end
   
   def new
