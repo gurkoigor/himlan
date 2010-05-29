@@ -84,6 +84,7 @@ p {margin:0; background:#616161;}
 	color: #999;
 }
 .post .byline i {
+    font-size: 12px;
 	margin-left: 10px;
 }
 .post .meta {
