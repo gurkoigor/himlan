@@ -55,9 +55,15 @@
         </div>
 
         <%= render :partial => "admin/relizs/params_#{@reliz.category.name}" %>
-
+        <% if current_user.admin? %>
+          <div class="group">
+            <%= form.label :status, "Статус:", :class => :label %>
+            <%= form.select(:status,status_collection_for_select) %>
+            <span class="description">Ex: a simple text</span>
+          </div>
+        <% end %>
         <div class="group navform">
-          <%= form.submit "Обновить", :class => "button" %> | <%= link_to "Перейти к загрузке скриншета", screenshots_admin_reliz_path(params[:id]) %>
+          <%= form.submit "Обновить", :class => "button" %> | <%= link_to "Назад", admin_relizs_path %> | <%= link_to "Перейти к загрузке скриншета", screenshots_admin_reliz_path(params[:id]) %>
         </div>
       <% end -%>
     </div>

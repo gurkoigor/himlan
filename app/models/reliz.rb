@@ -11,10 +11,6 @@ class Reliz < ActiveRecord::Base
 
   accepts_nested_attributes_for :poster, :allow_destroy => true
 
-  #attr_accessible :poster_attributes
-  #attr_accessible :screenshot_attributes
-  #attr_accessible :file_reliz_attributes
-
   serialize :params_form
 
   module Video
@@ -43,6 +39,14 @@ class Reliz < ActiveRecord::Base
         FORMAT = [["AVI", "1"], ["DVD Video", "2"], ["MPEG","3"], ["MP4", "4"], ["TS", "5"]]
   end
 
+  module Status
+    NEW = "Новый"
+    APPROVED = "Утвержденный"
+    CLOSED = "Закрыт"
+  end
+
+  named_scope :approved, :conditions => {:status => Status::APPROVED}, :order => "updated_at DESC"
+
   def screenshot_attributes=(attrs)
     if !attrs.blank? && !attrs[:screenshot].blank?
       screenshot = Screenshot.new(attrs)
@@ -55,6 +59,10 @@ class Reliz < ActiveRecord::Base
       file_reliz = FileReliz.new(attrs)
       self.file_relizs << file_reliz
     end
+  end
+
+  def approved?
+    return self.status == Status::APPROVED
   end
 
 end
