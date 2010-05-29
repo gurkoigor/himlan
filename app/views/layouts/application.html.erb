@@ -22,10 +22,6 @@ which means you can use it in any way you want provided you keep the link to the
       <div id="menu">
         <ul>
           <li><a href="#"><%= link_to "Главная", root_path %></a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Pricing</a></li>
-          <li><a href="#">Contacts</a></li>
           <li><%= link_to "Релизы", admin_relizs_path  %></li>
           <% if current_user.nil? %>
             <li><%= link_to "Вход на сайт", new_user_session_url  %></li>
@@ -34,6 +30,11 @@ which means you can use it in any way you want provided you keep the link to the
               <li><%= link_to "Админка", admin_relizs_path %></li>
             <% end %>
           <% end %>
+              <div style="float: right">
+                <li><a href="#">Сервис</a></li>
+                <li><a href="#">Контакты</a></li>
+                <li><a href="#">Про нас</a></li>
+              </div>
         </ul>
       </div>
       <div class="flash">
@@ -97,7 +98,7 @@ which means you can use it in any way you want provided you keep the link to the
       <!-- end main -->
       <!-- footer -->
       <div id="footer">
-        <div id="left_footer">&copy; Copyright 2008 <b>Darkit</b> design </div>
+        <div id="left_footer">&copy; Copyright</div>
         <div id="right_footer">
 
           <!-- Please do not change or delete this link. Read the license! Thanks. :-) -->
