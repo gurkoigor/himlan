@@ -8,7 +8,7 @@
         <li onclick="closeCategory(<%= category.id %>)">
           <a href="javascript:"><%= category.title %></a>
         </li>
-        <% category.subcategories.each do |subcategory| %>
+        <% category.subcategories.find(:all, :order => "title").each do |subcategory| %>
           <li>
             <%= link_to(subcategory.title, subcategory_relizs_path(:subcategory_name => subcategory.name)) %>
           </li>
