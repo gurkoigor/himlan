@@ -26,7 +26,7 @@ which means you can use it in any way you want provided you keep the link to the
           <li><a href="#">Services</a></li>
           <li><a href="#">Pricing</a></li>
           <li><a href="#">Contacts</a></li>
-          <li><%= link_to "Добавить релиз", new_admin_reliz_path  %></li>
+          <li><%= link_to "Релизы", admin_relizs_path  %></li>
           <% if current_user.nil? %>
             <li><%= link_to "Вход на сайт", new_user_session_url  %></li>
           <% else %>
