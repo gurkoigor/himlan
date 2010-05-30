@@ -3,9 +3,9 @@ class Reliz < ActiveRecord::Base
   belongs_to :subcategory
   belongs_to :user
   has_one :category, :through => :subcategory
-  has_one :poster
-  has_many :screenshots
-  has_many :file_relizs
+  has_one :poster, :dependent => :destroy
+  has_many :screenshots, :dependent => :delete_all
+  has_many :file_relizs, :dependent => :delete_all
 
   validates_presence_of :title, :description
 
