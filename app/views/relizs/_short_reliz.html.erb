@@ -9,7 +9,7 @@
     <p></p>
     <table>
       <td>
-        <%= short_reliz.poster.nil? ? "Нет постера" : image_tag(short_reliz.poster.poster(:main)) %>
+        <%= short_reliz.poster.nil? ? "Нет постера" : link_to(image_tag(short_reliz.poster.poster(:main)), short_reliz.poster.poster.url, {:rel => "lightbox"}) %>
       </td>
       <td>
         <ul>
