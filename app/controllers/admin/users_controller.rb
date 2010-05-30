@@ -1,7 +1,7 @@
 class Admin::UsersController < BaseAdminController
 
   layout "admin"
-  before_filter :user, :only => [:edit, :update]
+  before_filter :user, :only => [:edit, :update, :destroy, :remove_avatar]
   before_filter :require_admin
 
   def index
@@ -33,6 +33,23 @@ class Admin::UsersController < BaseAdminController
     else
       render :action => :edit
     end
+  end
+
+  def destroy
+    if @user.destroy
+      flash[:notice] = "Пользователь удален"
+      redirect_to :action => :index
+    else
+      flash[:notice] = "Не удалось удалить пользователя"
+      redirect_to :action => :index
+    end
+  end
+
+  def remove_avatar
+    puts "=========="
+    puts params.inspect
+    Avatar.find(params[:avatar_id]).destroy
+    redirect_to :action => :edit
   end
 
   private

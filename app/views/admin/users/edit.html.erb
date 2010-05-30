@@ -9,7 +9,7 @@
   <div class="content">
     <h2 class="title">Редактирование пользователя</h2>
     <div class="inner">
-      <% form_for @user, :url => admin_user_path, :html => {:class => :form } do |form| %>
+      <% form_for @user, :url => admin_user_path, :html => {:multipart => true, :class => :form} do |form| %>
         <%= form.error_messages %>
         <%= render :partial => "form", :object => form %>
         <div class="group navform">

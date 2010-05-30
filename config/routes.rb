@@ -8,7 +8,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :relizs, :member => {:remove_poster => :delete, :remove_screenshot => :delete, 
                                          :remove_file_reliz => :delete, :screenshots => :get,
                                          :upload_files => :get}
-    admin.resources :users
+    admin.resources :users, :member => {:remove_avatar => :delete}
   end
 
   # Sample of regular route:

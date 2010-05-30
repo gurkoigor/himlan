@@ -1,35 +1,51 @@
-  <div class="group">
-    <%= form.label :login, "Логин", :class => :label %>
-    <%= form.text_field :login, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
+<div class="group">
+  <%= form.label :login, "Логин", :class => :label %>
+  <%= form.text_field :login, :class => 'text_field' %>
+  <span class="description">Ex: a simple text</span>
+</div>
 
-  <div class="group">
-    <%= form.label :nickname, "Ник", :class => :label %>
-    <%= form.text_field :nickname, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
+<div class="group">
+  <%= form.label :nickname, "Ник", :class => :label %>
+  <%= form.text_field :nickname, :class => 'text_field' %>
+  <span class="description">Ex: a simple text</span>
+</div>
 
-  <div class="group">
-    <%= form.label :email, "Почтовый адрес:", :class => :label %>
-    <%= form.text_field :email, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
+<div class="group">
+  <%= form.label :email, "Почтовый адрес:", :class => :label %>
+  <%= form.text_field :email, :class => 'text_field' %>
+  <span class="description">Ex: a simple text</span>
+</div>
 
-  <div class="group">
-    <%= form.label :is_admin, "Админ:", :class => :label %>
-    <%= form.check_box :is_admin, :class => 'check_box' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
+<div class="group">
+  <%= form.label :avatar, "Аватар:", :class => "label" %>
+  <% unless @user.avatar %>
+    <% @user.build_avatar %>
+    <% form.fields_for :avatar do |avatar_form| %>
+      <%= avatar_form.file_field :avatar %><br />
+      <span style="color: aqua; margin-left: 100px;">(jpeg | gif | jpg | png)</span>
+    <% end %>
+  <% else %>
+    <%= image_tag @user.avatar.avatar.url(:small) %>
+    <%= (link_to "Удалить аватар", remove_avatar_admin_user_path(:avatar_id => @user.avatar.id,
+        :id => @user.id), :method => :delete) if @user.avatar.id %>
+  <% end %>
+  <span class="description">Ex: a simple text</span>
+</div>
 
-  <div class="group">
-    <%= form.label :password, form.object.new_record? ? "Пароль" : "Сменить пароль", :class => :label %>
-    <%= form.password_field :password, :class => 'password_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
+<div class="group">
+  <%= form.label :is_admin, "Админ:", :class => :label %>
+  <%= form.check_box :is_admin, :class => 'check_box' %>
+  <span class="description">Ex: a simple text</span>
+</div>
 
-  <div class="group">
-    <%= form.label :password_confirmation, "Повторить пароль", :class => :label %>
-    <%= form.password_field :password_confirmation, :class => 'password_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
+<div class="group">
+  <%= form.label :password, form.object.new_record? ? "Пароль" : "Сменить пароль", :class => :label %>
+  <%= form.password_field :password, :class => 'password_field' %>
+  <span class="description">Ex: a simple text</span>
+</div>
+
+<div class="group">
+  <%= form.label :password_confirmation, "Повторить пароль", :class => :label %>
+  <%= form.password_field :password_confirmation, :class => 'password_field' %>
+  <span class="description">Ex: a simple text</span>
+</div>

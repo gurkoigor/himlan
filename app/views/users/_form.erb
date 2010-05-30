@@ -16,7 +16,7 @@
   <% end %>
 <% else %>
   <%= image_tag @user.avatar.avatar.url(:small) %>
-  <%= link_to "Удалить аватар", remove_avatar_user_path(@user.avatar.id), :method => :delete %>
+  <%= (link_to "Удалить аватар", remove_avatar_user_path(@user.avatar.id), :method => :delete) if @user.avatar.id %>
 <% end %>
 <br />
 <%= form.label :password, form.object.new_record? ? "Пароль" : "Сменить пароль" %><br />
