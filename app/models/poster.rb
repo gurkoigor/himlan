@@ -6,7 +6,7 @@ class Poster < ActiveRecord::Base
   
   has_attached_file :poster,
     :path => ":rails_root/public/system/posters/:id/:style/:filename",
-    :styles => {:main => "180x>"},
+    :styles => {:main => "180x>", :lightbox => "600X400#"},
     :default_url => DEFAULT_POSTER_PATH
 
   attr_accessor :delete_photo
