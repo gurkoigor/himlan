@@ -61,7 +61,7 @@ class Admin::RelizsController < BaseAdminController
   end
 
   def destroy
-    if Reliz.find(params[:id]).delete
+    if Reliz.find(params[:id]).destroy
       redirect_to :action => 'index'
     end
   end
