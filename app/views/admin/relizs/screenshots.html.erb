@@ -18,7 +18,7 @@
         <% end %>
       </ul>
       <div style="clear: both;"></div>
-      <% if @reliz.screenshots.size < 5 %>
+      <% if @reliz.screenshots.size < 4 %>
         <div class="group">
           <% form_for [:admin, @reliz], :html => { :multipart => true, :method => :put, :class => :form } do |form|%>
             <% form.fields_for :screenshot_attributes do |screenshot_form| %>
