@@ -46,8 +46,6 @@ class Admin::UsersController < BaseAdminController
   end
 
   def remove_avatar
-    puts "=========="
-    puts params.inspect
     Avatar.find(params[:avatar_id]).destroy
     redirect_to :action => :edit
   end

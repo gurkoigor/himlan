@@ -13,7 +13,7 @@ class Poster < ActiveRecord::Base
 
   def validate
     unless self.poster.content_type =~ /image\/(jpeg|gif|jpg|png)/
-       errors.add(:photo_content_type, "Wrong format")
+       errors.add(:photo_content_type, "Не верный формат")
     end
   end
 end

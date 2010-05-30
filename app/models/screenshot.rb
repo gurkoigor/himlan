@@ -9,7 +9,7 @@ class Screenshot < ActiveRecord::Base
 
   def validate
     unless self.screenshot.content_type =~ /image\/(jpeg|gif|jpg|png)/
-       errors.add(:photo_content_type, "Wrong format")
+       errors.add(:screenshot_content_type, "Не верный формат")
     end
   end
 end
