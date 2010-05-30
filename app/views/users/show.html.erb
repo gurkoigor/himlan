@@ -20,7 +20,7 @@
 
 <p>
   <b>Последный вход:</b>
-  <%= l(@user.last_login_at, :format => :long) %>
+  <%= l(@user.last_login_at, :format => :long) if @user.last_login_at %>
 </p>
 
 <p>
