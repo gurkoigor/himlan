@@ -3,6 +3,6 @@ class FileReliz < ActiveRecord::Base
   belongs_to :reliz
   
   has_attached_file :file_reliz,
-    :path => ":rails_root/public/system/upload_file/:id/:style/:filename"
+    :path => ":rails_root/public/system/file_relizs/:id/:style/:filename"
 
 end
