@@ -1,6 +1,6 @@
-<li><span>Режиссер:</span> <%= @reliz.params_form[:producer] unless @reliz.nil? %></li>
-<li><span>Время воспроизвидения</span>: <%= @reliz.params_form[:reproducing_time] unless @reliz.nil? %></li>
-<li><span>Актеры</span>: <%= @reliz.params_form[:actors] unless @reliz.nil? %></li>
-<li><span>Качество:</span> <%= Reliz::Video::QUALITY[@reliz.params_form[:quality].to_i].first unless @reliz.nil? %></li>
-<li><span>Формат:</span> <%= Reliz::Video::FORMAT[@reliz.params_form[:format].to_i].first unless @reliz.nil? %></li>
-<li><span>Перевод:</span> <%= Reliz::Video::TRANSLATE[@reliz.params_form[:translation].to_i].first unless @reliz.nil? %></li>
+<li><span>Режиссер:</span> <%= h @reliz.params_form[:producer] unless @reliz.nil? %></li>
+<li><span>Время воспроизвидения</span>: <%= h @reliz.params_form[:reproducing_time] unless @reliz.nil? %></li>
+<li><span>Актеры</span>: <%= h @reliz.params_form[:actors] unless @reliz.nil? %></li>
+<li><span>Качество:</span> <%= h @reliz.params_form[:quality] unless @reliz.nil? %></li>
+<li><span>Формат:</span> <%= h @reliz.params_form[:format] unless @reliz.nil? %></li>
+<li><span>Перевод:</span> <%= h @reliz.params_form[:translation] unless @reliz.nil? %></li>

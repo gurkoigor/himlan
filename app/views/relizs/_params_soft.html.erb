@@ -1,2 +1,2 @@
-<li><span>Системные требования:</span> <%= @reliz.params_form[:system_requirements] unless @reliz.nil? %></li>
-<li><span>Язык:</span> <%= @reliz.params_form[:language] unless @reliz.nil? %></li>
+<li><span>Системные требования:</span> <%= h @reliz.params_form[:system_requirements] unless @reliz.nil? %></li>
+<li><span>Язык:</span> <%= h @reliz.params_form[:language] unless @reliz.nil? %></li>

@@ -1,3 +1,3 @@
-<li><span>Исполнитель:</span> <%= @reliz.params_form[:performer] unless @reliz.nil? %></li>
-<li><span>Страна выпуска:</span> <%= @reliz.params_form[:country] unless @reliz.nil? %></li>
-<li><span>Продюсер:</span> <%= @reliz.params_form[:producer] unless @reliz.nil? %></li>
+<li><span>Исполнитель:</span> <%= h @reliz.params_form[:performer] unless @reliz.nil? %></li>
+<li><span>Страна выпуска:</span> <%= h @reliz.params_form[:country] unless @reliz.nil? %></li>
+<li><span>Продюсер:</span> <%= h @reliz.params_form[:producer] unless @reliz.nil? %></li>
