@@ -1,8 +1,9 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul>
-      <li class="first"><%#= link_to 'List', admin_hints_path  %></li>
-      <li class="active"><%#= link_to 'Edit', edit_admin_hint_path %></li>
+      <li class="first"><%= link_to 'К релизу', edit_admin_reliz_path(params[:id])  %></li>
+      <li class="active"><%= link_to 'Скриншеты', screenshots_admin_reliz_path(params[:id]) %></li>
+      <li><%= link_to 'Файлы', upload_files_admin_reliz_path(params[:id]) %></li>
     </ul>
     <div class="clear"></div>
   </div>
