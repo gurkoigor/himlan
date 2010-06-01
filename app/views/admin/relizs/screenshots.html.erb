@@ -18,19 +18,20 @@
         <% end %>
       </ul>
       <div style="clear: both;"></div>
-      <% if @reliz.screenshots.size < 4 %>
-        <div class="group">
-          <% form_for [:admin, @reliz], :html => { :multipart => true, :method => :put, :class => :form } do |form|%>
+      <div class="group">
+
+        <% form_for [:admin, @reliz], :html => { :multipart => true, :method => :put, :class => :form } do |form|%>
+          <% if @reliz.screenshots.size < 4 %>
             <% form.fields_for :screenshot_attributes do |screenshot_form| %>
               <%= form.label :page_name, "Скрин:", :class => :label %>
               <%= screenshot_form.file_field :screenshot %>
             <% end %>
-            <div class="group navform">
-              <%= form.submit "Добавить скриншет" %> | <%= link_to "Вернуться к редактированию", edit_admin_reliz_path(@reliz.id) %> | <%= link_to "Перейти к загрузке файла", upload_files_admin_reliz_path(@reliz.id) %>
-            </div>
+          <% end %>
+          <div class="group navform">
+            <%= (form.submit "Добавить скриншет") if (@reliz.screenshots.size < 4) %> | <%= link_to "Вернуться к редактированию", edit_admin_reliz_path(@reliz.id) %> | <%= link_to "Перейти к загрузке файла", upload_files_admin_reliz_path(@reliz.id) %>
           </div>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
