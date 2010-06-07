@@ -10,9 +10,9 @@ class Admin::RelizsController < BaseAdminController
 
   def index
     if current_user.admin?
-      @relizs = Reliz.find(:all).paginate(:per_page => 10, :page => (params[:page] || 1), :order => "created_at DESC, updated_at DESC")
+      @relizs = Reliz.find(:all, :order => "created_at DESC, updated_at DESC").paginate(:per_page => 10, :page => (params[:page] || 1))
     else
-      @relizs = Reliz.find(:all, :conditions => { :user_id => current_user.id}).paginate(:per_page => 10, :page => (params[:page] || 1), :order => "created_at DESC, updated_at DESC")
+      @relizs = Reliz.find(:all, :conditions => { :user_id => current_user.id}, :order => "created_at DESC, updated_at DESC").paginate(:per_page => 10, :page => (params[:page] || 1))
     end
   end
   
