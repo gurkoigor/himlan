@@ -11,6 +11,9 @@
 # была возможность минимальной локализации приложения на русский язык.
 
 ru:
+  will_paginate:
+    previous_label: Следующая
+    next_label: Предыдущая
   date:
     formats:
       default: "%d.%m.%Y"
