@@ -1,5 +1,11 @@
 <div class="group">
-  <%= label_tag :description, "Режиссер:", :class => :label %>
-  <%= text_field_tag 'reliz[params_form][producer]', (@reliz.params_form[:producer] unless @reliz.nil?), :class => "text_field" %>
+  <%= label_tag :author, "Автор:", :class => :label %>
+  <%= text_field_tag 'reliz[params_form][author]', (@reliz.params_form[:author] unless @reliz.nil?), :class => "text_field" %>
+<span class="description">Ex: a simple text</span>
+</div>
+
+<div class="group">
+  <%= label_tag :publisher, "Издатель:", :class => :label %>
+  <%= text_field_tag 'reliz[params_form][publisher]', (@reliz.params_form[:publisher] unless @reliz.nil?), :class => "text_field" %>
 <span class="description">Ex: a simple text</span>
 </div>
