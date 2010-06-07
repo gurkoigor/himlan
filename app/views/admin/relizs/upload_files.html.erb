@@ -21,7 +21,8 @@
       <% form_for [:admin, @reliz], :html => { :multipart => true, :method => :put, :class => :form } do |form|%>
         <% form.fields_for :file_reliz_attributes do |file_reliz_form| %>
           <%= form.label :page_name, "Файл:", :class => :label %>
-          <%= file_reliz_form.file_field :file_reliz %>
+          <%= file_reliz_form.file_field :file_reliz %><br />
+          <span class="description">Максимальный файл для загрузки не должен превышать 1500 мб.</span>
         <% end %>
         <div class="group navform">
           <%= form.submit "Добавить файл" %> | 

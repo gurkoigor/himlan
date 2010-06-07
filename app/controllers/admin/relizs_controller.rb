@@ -46,8 +46,8 @@ class Admin::RelizsController < BaseAdminController
       flash[:notice] = "Релиз обновлен"
       redirect_to :back
     else
-      flash[:warn] = "Релиз не обновлен"
-      redirect_to :action => :edit
+      flash[:error] = "Релиз не обновлен"
+      redirect_to :back
     end
   end
   
