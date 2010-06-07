@@ -28,7 +28,7 @@
     <p class="links">
       <%= link_to_function "Скачать", "Effect.toggle('file_upload', 'appear'); return false;", :class => "permalink"  %> &nbsp;&nbsp;&bull;&nbsp;&nbsp;
     <ul id="file_upload" style="display: none">
-      <% @reliz.file_relizs.find(:all, :order => "file_reliz_updated_at DESC").each do |file|  %>
+      <% @reliz.file_relizs.find(:all, :order => "file_reliz_file_name").each do |file|  %>
         <li><%= link_to file.file_reliz_file_name, file.file_reliz.url  %></li>
       <% end %>
     </ul>
