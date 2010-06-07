@@ -4,7 +4,7 @@ class Admin::SubcategoriesController < BaseAdminController
   before_filter :require_admin
 
   def index
-    @subcategories = Subcategory.find(:all).paginate(:per_page => 10, :page => (params[:page] || 1))
+    @subcategories = Subcategory.find(:all, :order => "title").paginate(:per_page => 10, :page => (params[:page] || 1))
   end
 
   def edit
