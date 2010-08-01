@@ -1,0 +1,21 @@
+<% content_for :title do%>
+  HimL@n - поиск
+<% end %>
+
+<% content_for :left do %>
+<%= render :partial=>'common/menu' %>
+<% end %>
+
+<!-- PRODUCT CATEGORIES -->
+<h2><span><%#= @subcategory.title %></span></h2>
+<ul>
+  <% if @relizs.empty? %>
+  <p style="text-align: center; font-size: 14px; font-weight: bold;">
+    По Вашему запросу {<%= params[:query] %>} ничего не найдено
+  </p>
+  <% else %>
+    <%=  render :partial => 'short_reliz', :collection => @relizs %>
+  <% end %>
+</ul>
+<%= will_paginate @relizs %>
+<div style="height:15px;">&nbsp;</div>
