@@ -53,7 +53,7 @@ class Admin::RelizsController < BaseAdminController
   
   def update_subcategories
     @category = Category.find(params[:category_id])
-    @subcategories = @category.subcategories
+    @subcategories = @category.subcategories.find(:all, :order => "title")
     render :update do |page|
       page.replace_html "subcategories", :partial => "admin/relizs/subcategories", :object => @subcategories
       page.replace_html "reliz_params", :partial => "admin/relizs/params_#{@category.name}"
