@@ -5,6 +5,7 @@
       <i>Категория:&nbsp;<%= short_reliz.subcategory.category.title %></i>
       <i>Жанр:&nbsp;<%= short_reliz.subcategory.title %></i>
       <i>Добавлен:&nbsp;<%= l(short_reliz.created_at, :format => :long) %></i>
+      <i>Количество скачиваний:&nbsp;<%= short_reliz.counter_downloads %></i>
     </p>
     <p></p>
     <table>

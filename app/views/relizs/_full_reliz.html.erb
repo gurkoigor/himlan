@@ -1,7 +1,12 @@
 <div class="post">
   <h2 class="title"><%= h "#{@reliz.title}(#{@reliz.year_issue})" %></h2>
   <div class="entry">
-    <p class="byline"><i>Добавил&nbsp;<%= @reliz.user.nickname unless @reliz.user.nil? %>&nbsp;<%= l(@reliz.created_at, :format => :long) %></i></p>
+    <p class="byline">
+      <i>Добавил&nbsp;<%= @reliz.user.nickname unless @reliz.user.nil? %>&nbsp;<%= l(@reliz.created_at, :format => :long) %></i>
+      <i>Количество скачиваний:&nbsp;
+        <span id="counter_downloads"><%= @reliz.counter_downloads %></span>
+      </i>
+    </p>
     <p></p>
     <table>
       <td>
@@ -11,7 +16,7 @@
         <ul class="post_text">
           <li><span>Категория:&nbsp;</span><%= @reliz.subcategory.category.title %></li>
           <li><span>Жанр:&nbsp;</span><%= @reliz.subcategory.title %></li>
-          <li><span>Описание:</span> <%= @reliz.description %></li>
+          <li><span>Описание:</span><%= @reliz.description %></li>
           <%= render :partial => "params_#{@reliz.category.name}" %>
         </ul>
       </td>
@@ -29,7 +34,8 @@
       <%= link_to_function "Скачать", "Effect.toggle('file_upload', 'appear'); return false;", :class => "permalink"  %> &nbsp;&nbsp;&bull;&nbsp;&nbsp;
     <ul id="file_upload" style="display: none">
       <% @reliz.file_relizs.find(:all, :order => "file_reliz_file_name").each do |file|  %>
-      <li><%= link_to file.file_reliz_file_name, file.file_reliz.url  %>&nbsp;
+      <li><%= link_to file.file_reliz_file_name, file.file_reliz.url,
+                :onclick => "countDownloads()" %>&nbsp;
             <%= "(#{number_to_human_size(file.file_reliz_file_size, :separator => ',', :precision => 2)})" %>
       </li>
       <% end %>
@@ -37,3 +43,10 @@
     </p>
   </div>
 </div>
+
+<script>
+  function countDownloads(){
+  <%= remote_function  :update => nil,
+    :url => {:controller => "relizs", :action => "update_counter_downloads", :id => @reliz}%>
+  }
+</script>
