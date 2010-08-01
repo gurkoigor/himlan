@@ -11,3 +11,4 @@ doc/*.dot
 nbproject
 *.sw?
 public/system
+db/schema
