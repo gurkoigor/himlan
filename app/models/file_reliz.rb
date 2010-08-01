@@ -7,6 +7,6 @@ class FileReliz < ActiveRecord::Base
 
   validates_attachment_size(:file_reliz,
     {:message => "Размер файла превышает допустимый размер",
-     :less_than => 1600.megabytes})
+     :less_than => 1700.megabytes})
 
 end
