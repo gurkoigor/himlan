@@ -14,6 +14,12 @@ class RelizsController < ApplicationController
     @subcategory = Subcategory.find(:first, :conditions => {:name => params[:subcategory_name]})
   end
 
+  def search
+    @categories = Category.find(:all)
+    @relizs = Reliz.approved.find(:all, :conditions => ["title LIKE ?", "%#{params[:query]}%"]).
+      paginate(:per_page => 10, :page => (params[:page] || 1))
+  end
+
   private
     def reliz
       @reliz = Reliz.find(params[:id])

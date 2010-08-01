@@ -5,9 +5,11 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :admin do |admin|
     admin.resources :categories 
     admin.resources :subcategories
-    admin.resources :relizs, :member => {:remove_poster => :delete, :remove_screenshot => :delete, 
-                                         :remove_file_reliz => :delete, :screenshots => :get,
-                                         :upload_files => :get}
+    admin.resources :relizs, :member => {:remove_poster => :delete,
+      :remove_screenshot => :delete,
+      :remove_file_reliz => :delete,
+      :screenshots => :get,
+      :upload_files => :get}
     admin.resources :users, :member => {:remove_avatar => :delete}
   end
 
@@ -54,6 +56,7 @@ ActionController::Routing::Routes.draw do |map|
   map.subcategories '/:category_name/subcategories', :controller => 'subcategories'
   map.subcategory_relizs '/relizs/:subcategory_name', :controller => 'relizs'
   map.reliz '/reliz/show/:id', :controller => 'relizs', :action => "show"
+  map.search '/reliz/search', :controller => 'relizs', :action => "search"
 
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
