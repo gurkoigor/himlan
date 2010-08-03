@@ -31,7 +31,7 @@ class Reliz < ActiveRecord::Base
     CLOSED = "Закрыт"
   end
 
-  named_scope :approved, :conditions => {:status => Status::APPROVED}, :order => "updated_at DESC"
+  named_scope :approved, :conditions => {:status => Status::APPROVED}, :order => "created_at DESC"
 
   def screenshot_attributes=(attrs)
     if !attrs.blank? && !attrs[:screenshot].blank?
@@ -43,6 +43,7 @@ class Reliz < ActiveRecord::Base
   def file_reliz_attributes=(attrs)
     if !attrs.blank? && !attrs[:file_reliz].blank?
       file_reliz = FileReliz.new(attrs)
+      self.created_at = Time.now
       self.file_relizs << file_reliz
     end
   end
