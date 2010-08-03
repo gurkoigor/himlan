@@ -5,7 +5,8 @@ class Admin::UsersController < BaseAdminController
   before_filter :require_admin
 
   def index
-    @users = User.find(:all).paginate(:per_page => 10, :page => (params[:page] || 1))
+    @users = User.find(:all).paginate(:per_page => 10, :page => (params[:page] || 1), 
+      :order => "last_login_at")
   end
 
   def new
