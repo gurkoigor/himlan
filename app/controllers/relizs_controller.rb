@@ -21,10 +21,12 @@ class RelizsController < ApplicationController
   end
 
   def update_counter_downloads
-    @reliz.counter_downloads = @reliz.counter_downloads + 1
-    @reliz.save
-    render :update do |page|
-      page.replace_html "counter_downloads", @reliz.counter_downloads
+    begin
+      @reliz.counter_downloads = @reliz.counter_downloads + 1
+      @reliz.save
+      send_file(params[:url])
+    rescue
+      redirect_to :action => :show
     end
   end
 

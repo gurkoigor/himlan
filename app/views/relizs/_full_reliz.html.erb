@@ -34,19 +34,13 @@
       <%= link_to_function "Скачать", "Effect.toggle('file_upload', 'appear'); return false;", :class => "permalink"  %> &nbsp;&nbsp;&bull;&nbsp;&nbsp;
     <ul id="file_upload" style="display: none">
       <% @reliz.file_relizs.find(:all, :order => "file_reliz_file_name").each do |file|  %>
-      <li><%= link_to file.file_reliz_file_name, file.file_reliz.url,
-                :onclick => "countDownloads()" %>&nbsp;
-            <%= "(#{number_to_human_size(file.file_reliz_file_size, :separator => ',', :precision => 2)})" %>
+      <li>
+        <%= link_to(file.file_reliz_file_name, {:controller => "relizs", :action => "update_counter_downloads", 
+          :id => @reliz, :url => file.file_reliz.path}) %>&nbsp;
+        <%= "(#{number_to_human_size(file.file_reliz_file_size, :separator => ',', :precision => 2)})" %>
       </li>
       <% end %>
     </ul>
     </p>
   </div>
 </div>
-
-<script>
-  function countDownloads(){
-  <%= remote_function  :update => nil,
-    :url => {:controller => "relizs", :action => "update_counter_downloads", :id => @reliz}%>
-  }
-</script>
