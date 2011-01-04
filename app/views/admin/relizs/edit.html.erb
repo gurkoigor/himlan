@@ -31,7 +31,9 @@
 
         <div class="group">
           <%= form.label :page_name, "Год выпуска:", :class => :label %>
-          <%= date_select(:year_issue, "", :order => [:year]) %>
+          <%= select_year((@reliz.year_issue unless @reliz.nil?) || Date.today.year, 
+            :start_year => (Time.now.year - 5), :end_year => (Time.now.year + 1), 
+            :field_name => :year_issue)%>
           <span class="description">Ex: a simple text</span>
         </div>
       
