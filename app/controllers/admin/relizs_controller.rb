@@ -42,8 +42,8 @@ class Admin::RelizsController < BaseAdminController
   end
 
   def update
-    params[:reliz] = params[:reliz].merge(:year_issue => params[:date][:year_issue]) unless 
-      params[:date][:year_issue].blank?
+    params[:reliz] = params[:reliz].merge(:year_issue => params[:date][:year_issue]) if 
+      !params[:date].blank? && !params[:date][:year_issue].blank?
     if @reliz.update_attributes(params[:reliz])
       flash[:notice] = "Релиз обновлен"
       redirect_to :back
