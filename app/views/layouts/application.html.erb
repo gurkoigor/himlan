@@ -24,6 +24,7 @@
           <% if current_user.admin? %>
             <li><%= link_to "Админка", admin_relizs_path %></li>
           <% end %>
+          <li><%= link_to "Добавить релиз", new_admin_reliz_path %></li>
         <% end %>
         <div style="float: right">
           <li><a href="#">Сервис</a></li>

@@ -15,11 +15,19 @@
       </div>      
       <div id="main-navigation">
         <ul>
-          <li class="<%=  controller.controller_path == 'admin/relizs' ? 'active' : '' %>"><%= link_to "Релизы", admin_relizs_path%></li>
+          <li class="<%=  controller.controller_path == 'admin/relizs' ? 'active' : '' %>">
+            <%= link_to "Релизы", admin_relizs_path%>
+          </li>
           <% if current_user.admin? %>
-            <li class="<%=  controller.controller_path == 'admin/categories' ? 'active' : '' %>"><%= link_to "Категории", admin_categories_path%></li>
-            <li class="<%=  controller.controller_path == 'admin/subcategories' ? 'active' : '' %>"><%= link_to "Подкатегории",  admin_subcategories_path%></li>
-            <li class="<%=  controller.controller_path == 'admin/users' ? 'active' : '' %>"><%= link_to "Пользователи",  admin_users_path%></li>
+            <li class="<%=  controller.controller_path == 'admin/categories' ? 'active' : '' %>">
+              <%= link_to "Категории", admin_categories_path%>
+            </li>
+            <li class="<%=  controller.controller_path == 'admin/subcategories' ? 'active' : '' %>">
+              <%= link_to "Подкатегории",  admin_subcategories_path%>
+            </li>
+            <li class="<%=  controller.controller_path == 'admin/users' ? 'active' : '' %>">
+              <%= link_to "Пользователи",  admin_users_path%>
+            </li>
           <% end %>
         </ul>
         <div class="clear"></div>
