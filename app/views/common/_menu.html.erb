@@ -21,18 +21,18 @@
 <SCRIPT type="text/javascript">
   var category_ids = [<%= @categories.map{|category| category.id}.join(",") %>]
   function closeCategory(id) {
-    Effect.BlindUp('category_'+id, { duration: 0.5 });
-    Effect.BlindDown('title_category_'+id, { duration: 0.5 });
+    $('#category_'+id).hide("fast");
+    $('#title_category_'+id).show("slow");
   }
   function closeOthers(id){
     for (i=0; i<category_ids.length; i++){
-      if ( (category_ids[i] != id) && ($('category_'+category_ids[i]).style.display != "none"))
+      if ((category_ids[i] != id) && ($('#category_'+category_ids[i]).css("display") != "none"))
         closeCategory(category_ids[i]);
     }
   }
   function openCategory(id) {
     closeOthers(id)
-    Effect.BlindDown('category_'+id, { duration: 0.5 });
-    Effect.BlindUp('title_category_'+id, { duration: 0.5 });
+    $('#category_'+id).show("slow");
+    $('#title_category_'+id).hide("fast");
   }
 </SCRIPT>

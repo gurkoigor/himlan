@@ -10,7 +10,7 @@
     <p></p>
     <table>
       <td>
-        <%= @reliz.poster.nil? ? "Нет постера" : link_to(image_tag(@reliz.poster.poster(:main)), @reliz.poster.poster.url(:lightbox), {:rel => "lightbox"}) %>
+        <%= @reliz.poster.nil? ? "Нет постера" : link_to(image_tag(@reliz.poster.poster(:main)), @reliz.poster.poster.url(:lightbox), {:class => "lightbox"}) %>
       </td>
       <td>
         <ul class="post_text">
@@ -26,12 +26,12 @@
     <% if @reliz.screenshots %>
       <div style="margin-top: 5px; text-align: center">
         <% @reliz.screenshots.each do |screen| %>
-          <%= link_to(image_tag(screen.screenshot.url(:rectangle)), screen.screenshot.url(:lightbox) , :rel => "lightbox[roadtrip]") %>
+          <%= link_to(image_tag(screen.screenshot.url(:rectangle)), screen.screenshot.url(:lightbox) , :class => "lightbox") %>
         <% end %>
       </div>
     <% end %>
     <p class="links">
-      <%= link_to_function "Скачать", "Effect.toggle('file_upload', 'appear'); return false;", :class => "permalink"  %> &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+      <%= link_to_function "Скачать", "$('#file_upload').toggle();", :class => "permalink"  %> &nbsp;&nbsp;&bull;&nbsp;&nbsp;
     <ul id="file_upload" style="display: none">
       <% @reliz.file_relizs.find(:all, :order => "file_reliz_file_name").each do |file|  %>
       <li>
@@ -44,3 +44,9 @@
     </p>
   </div>
 </div>
+
+<script>
+  $(function() {
+    $('a.lightbox').lightBox();
+  });
+</script>

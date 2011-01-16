@@ -13,8 +13,7 @@
         <%= form.error_messages %>
         <div class="group">
           <%= form.label :page_name, "Категория:", :class => :label %>
-          <%= select_tag('category_id', options_for_select(Category.find(:all).collect { |c| [c.title, c.id]}),
-              :onchange => remote_function(:update => nil, :url => {:controller => "relizs", :action => "update_subcategories"}, :with => "'category_id='+$(this).options[$(this).selectedIndex].value" )) %>
+          <%= select_tag('category_id', options_for_select(Category.find(:all).collect { |c| [c.title, c.id]})) %>
           <span class="description">Ex: a simple text</span>
         </div>
         <div id="subcategories" class="group">
@@ -55,9 +54,20 @@
 <% content_for :sidebar, render(:partial => 'sidebar') -%>
 
 <script type="text/javascript" language="javascript">
-  // <![CDATA[
-  Event.observe(window, 'load', function() {
-<%= remote_function(:update => nil, :url => {:controller => "relizs", :action => "update_subcategories"}, :with => "'category_id='+$('category_id').options[$('category_id').selectedIndex].value" ) %>
+  $(document).ready(function() {
+    updateSubcategories();
   });
-  // ]]>
+
+  $('#category_id').change(function(){
+    updateSubcategories();
+  });
+
+  function updateSubcategories(){
+    $.ajax({
+      type: 'POST',
+      url: '<%= url_for(:controller => "relizs", :action => "update_subcategories") %>',
+      data: {category_id: $('#category_id :selected').val()},
+    });
+  }
+
 </script>
